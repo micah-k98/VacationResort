@@ -2,12 +2,16 @@
     background-color: #a3b899 !important;
 }
 
+main {
+    min-height: 80vh;
+}
+
+
 
 
 /* FOOTER */
 .footer-container {
     margin-top: auto;
-    position: absolute;
     bottom: 0;
     width: 100%;
 }
