@@ -1,0 +1,13 @@
+.bg-primary {
+    background-color: #a3b899 !important;
+}
+
+
+
+/* FOOTER */
+.footer-container {
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
