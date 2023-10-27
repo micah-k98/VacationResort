@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vacation Resort</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap-minty.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">Vacation Resort</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="overnightStay.html">Overnight Stay
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dining.html">Dining</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rentalCar.html">Rent-A-Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activities.html">Activities</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+        <main class="container mt-5 mb-5">
+            <h2 class="text-center mb-4">Overnight Stay Cost Estimator</h2>
+            <form id="theForm">
+                <div class="form-floating">
+                    <input type="email" id="emailInput" class="form-control" name="emailInput" placeholder="Email" required>
+                    <label for="emailInput" class="form-label">Email</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="email" id="fullNameInput" class="form-control" name="fullNameInput" placeholder="Full Name" required>
+                    <label for="fullNameInput" class="form-label">Full Name</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="date" id="checkInDateInput" class="form-control" name="checkInDateInput" required>
+                    <label for="checkInDateInput" class="form-label">Check-In Date</label>
+                </div>
+                <div class="form-floating mt-2">
+                    <input type="number" id="numOfNightsInput" class="form-control" name="numOfNightsInput" placeholder="Number of Nights" min="1" max="28" required>
+                    <label for="numOfNightsInput" class="form-label">Number of Nights</label>
+                </div>
+                <div class="mt-3">
+                    <h5>Room Type</h5>
+                    <div class="form-check">
+                        <input type="radio" id="queenRadio" class="form-check-input me-2" value="" name="roomTypeRadio" checked>
+                        <label for="queenRadio" class="form-check-label">Queen</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="radio" id="kingRadio" class="form-check-input me-2" value="" name="roomTypeRadio">
+                        <label for="kingRadio" class="form-check-label">King</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="radio" id="bedroomSuiteRadio" class="form-check-input me-2" value="" name="roomTypeRadio">
+                        <label for="bedroomSuiteRadio" class="form-check-label">2-Bedroom Suite</label>
+                    </div>
+                </div> 
+                <!-- end of radio buttons for room type -->
+                <div class="row">
+                    <div class="form-group mt-3 col-md-6" validate>
+                        <label for="numOfAdultsInput" class="form-label">Number of Adults:</label>
+                        <input type="number" id="numOfAdultsInput" class="form-control p-2" name="numOfAdultsInput" min="1" max="6" required>
+                    </div>
+                    <div class="form-group mt-3 col-md-6" validate>
+                        <label for="numOfChildrenInput" class="form-label">Number of Children:</label>
+                        <input type="number" id="numOfChildrenInput" class="form-control p-2" name="numOfChildrenInput" min="1" max="6" required>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <h5>Discounts</h5>
+                    <div class="form-check">
+                        <input type="radio" id="noneRadio" class="form-check-input me-2" value="" name="discountsRadio" checked>
+                        <label for="noneRadio" class="form-check-label">None</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="radio" id="aaaOrSeniorRadio" class="form-check-input me-2" value="" name="discountsRadio">
+                        <label for="aaaOrSeniorRadio" class="form-check-label">AAA/Senior (10%)</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="radio" id="militaryRadio" class="form-check-input me-2" value="" name="discountsRadio">
+                        <label for="militaryRadio" class="form-check-label">Military (20%)</label>
+                    </div>
+                </div> 
+                <!-- end of radio buttons for discounts -->
+                
+                <div class="text-center"> 
+                    <button id="estimateButton" class="btn btn-secondary mt-5 p-2 col-2">Estimate</button>
+                </div>
+            </form>
+        </main>
+        
+        <footer class="footer-container">
+            <div class="container-fluid bg-primary p-3 text-center m-0">
+                &copy; Vacation Resort 2023
+            </div>
+        </footer>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+
+    
+</html>
