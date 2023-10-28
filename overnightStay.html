@@ -63,28 +63,34 @@
                     <h5>Room Type</h5>
                     <div class="form-check">
                         <input type="radio" id="queenRadio" class="form-check-input me-2" value="" name="roomTypeRadio" checked>
-                        <label for="queenRadio" class="form-check-label">Queen</label>
+                        <label for="queenRadio" class="form-check-label">Queen <span class="text-muted fs-6">(max of 5 occupants; inc rollaway)</span></label>
                     </div>
                     <div class="form-check mt-1">
                         <input type="radio" id="kingRadio" class="form-check-input me-2" value="" name="roomTypeRadio">
-                        <label for="kingRadio" class="form-check-label">King</label>
+                        <label for="kingRadio" class="form-check-label">King <span class="text-muted">(max of 2 occupants)</span></label>
                     </div>
                     <div class="form-check mt-1">
                         <input type="radio" id="bedroomSuiteRadio" class="form-check-input me-2" value="" name="roomTypeRadio">
-                        <label for="bedroomSuiteRadio" class="form-check-label">2-Bedroom Suite</label>
+                        <label for="bedroomSuiteRadio" class="form-check-label">2-Bedroom Suite <span class="text-muted">(max of 6 occupants; inc sleeper sofa)</span></label>
                     </div>
                 </div> 
                 <!-- end of radio buttons for room type -->
                 <div class="row">
                     <div class="form-group mt-3 col-md-6">
                         <label for="numOfAdultsInput" class="form-label">Number of Adults:</label>
-                        <input type="number" id="numOfAdultsInput" class="form-control p-2" name="numOfAdultsInput" min="1" max="6" required>
+                        <input type="number" id="numOfAdultsInput" class="form-control p-2" name="numOfAdultsInput" min="0" max="6" required>
                     </div>
                     <div class="form-group mt-3 col-md-6" >
                         <label for="numOfChildrenInput" class="form-label">Number of Children:</label>
-                        <input type="number" id="numOfChildrenInput" class="form-control p-2" name="numOfChildrenInput" min="1" max="6" required>
+                        <input type="number" id="numOfChildrenInput" class="form-control p-2" name="numOfChildrenInput" min="0" max="6" required>
                     </div>
                 </div>
+
+                <div class="alert alert-dismissible alert-secondary mt-4" id="messageAlert" hidden>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Sorry!</strong> The room you selected will not hold your party.
+                  </div>
+
                 <div class="mt-3">
                     <h5>Discounts</h5>
                     <div class="form-check">

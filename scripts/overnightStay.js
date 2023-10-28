@@ -12,11 +12,13 @@ function estimateButtonClicked(event)
     const order = {};
 
     order.roomRate = getRoomRate(order);
+    
     order.discounts = getDiscounts(order);
     order.discountedRoomCost = getDiscountedRoomCost(order);
     order.tax = getTax(order);
     order.totalCost = getTotalCost(order);
 
+    getMessageAlert(order);
     displayOutput(order);
 }
 
@@ -25,18 +27,18 @@ function getRoomRate(order)
     order.checkInDate = new Date(document.getElementById("checkInDateInput").value);
     order.checkInMonth = order.checkInDate.getMonth()+1;
 
-    const queenRadio = document.getElementById("queenRadio");
-    const kingRadio = document.getElementById("kingRadio");
-    const bedroomSuiteRadio = document.getElementById("bedroomSuiteRadio");
+    order.queenRadio = document.getElementById("queenRadio");
+    order.kingRadio = document.getElementById("kingRadio");
+    order.bedroomSuiteRadio = document.getElementById("bedroomSuiteRadio");
     
     if (order.checkInMonth >= 6 && order.checkInMonth <= 8) 
     {
-        if (queenRadio.checked || kingRadio.checked) order.roomRate = 250.00;
+        if (order.queenRadio.checked || order.kingRadio.checked) order.roomRate = 250.00;
         else order.roomRate = 350.00;
     }
     else 
     {
-        if (queenRadio.checked || kingRadio.checked) order.roomRate = 150.00;
+        if (order.queenRadio.checked || order.kingRadio.checked) order.roomRate = 150.00;
         else order.roomRate = 210.00;
     }
 
@@ -78,4 +80,30 @@ function displayOutput(order)
     console.log("discounted room cost : " + order.discountedRoomCost);
     console.log("tax: " + order.tax);
     console.log("total cost: " + order.totalCost);
+
+
+}
+
+function getMessageAlert(order)
+{
+    order.numOfAdults = +document.getElementById("numOfAdultsInput").value;
+    order.numOfChildren = +document.getElementById("numOfChildrenInput").value;
+    order.totalNumOfOccupants = order.numOfAdults + order.numOfChildren;
+    order.messageAlert = document.getElementById("messageAlert");
+
+    if (order.queenRadio.checked) 
+    {
+        if (order.totalNumOfOccupants > 5) document.getElementById("messageAlert").hidden = false;
+        else document.getElementById("messageAlert").hidden = true;
+    }
+    else if (order.kingRadio.checked) 
+    {
+        if (order.totalNumOfOccupants > 2 ) document.getElementById("messageAlert").hidden = false;
+        else document.getElementById("messageAlert").hidden = true;
+    }
+    else if (order.bedroomSuiteRadio.checked) 
+    {
+        if (order.totalNumOfOccupants > 6 ) document.getElementById("messageAlert").hidden = false;
+        else document.getElementById("messageAlert").hidden = true;
+    }
 }
