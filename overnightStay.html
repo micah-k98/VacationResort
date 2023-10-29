@@ -107,6 +107,33 @@
                     </div>
                 </div> 
                 <!-- end of radio buttons for discounts -->
+
+                <section class="mt-4 pt-4 border-top" id="estimatedCostTable" hidden>
+                    <h4 class="text-center fw-semibold">Estimated Cost</h4>
+                    <table class="table table-hover">
+                        <tr>
+                            <td class="w-50 text-end pr-5">Original Room Cost: </td>
+                            <td>$ <span id="roomRate">0.00</span></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50 text-end pr-5">Discounts: </td>
+                            <td>$ <span id="discounts">0.00</span></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50 text-end pr-5">Discounted Room Cost: </td>
+                            <td>$ <span id="discountedRoomCost">0.00</span></td>
+                        </tr>
+                        <tr>
+                            <td class="w-50 text-end pr-5">Tax: </td>
+                            <td>$ <span id="tax">0.00</span></td>
+                        </tr>
+                        <tr>
+                            <th class="w-50 text-end pr-5 ">Total Cost of the Stay: </th>
+                            <td>$ <span id="totalCost">0.00</span></td>
+                        </tr>
+                    </table>
+                    <h6 class="text-center">*All taxes have already been incorporated into the fees shown</h6>
+                </section>
                 
                 <div class="text-center"> 
                     <button id="estimateButton" class="btn btn-secondary mt-5 p-2 col-2">Estimate</button>

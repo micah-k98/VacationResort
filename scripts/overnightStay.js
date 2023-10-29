@@ -12,13 +12,12 @@ function estimateButtonClicked(event)
     const order = {};
 
     order.roomRate = getRoomRate(order);
-    
+    order.messageAlert = getMessageAlert(order);
     order.discounts = getDiscounts(order);
     order.discountedRoomCost = getDiscountedRoomCost(order);
     order.tax = getTax(order);
     order.totalCost = getTotalCost(order);
 
-    getMessageAlert(order);
     displayOutput(order);
 }
 
@@ -26,6 +25,7 @@ function getRoomRate(order)
 {
     order.checkInDate = new Date(document.getElementById("checkInDateInput").value);
     order.checkInMonth = order.checkInDate.getMonth()+1;
+    order.numOfDays = +(document.getElementById("numOfNightsInput").value);
 
     order.queenRadio = document.getElementById("queenRadio");
     order.kingRadio = document.getElementById("kingRadio");
@@ -42,46 +42,7 @@ function getRoomRate(order)
         else order.roomRate = 210.00;
     }
 
-    return order.roomRate;
-}
-
-function getDiscounts(order)
-{
-    order.aaaOrSenior = document.getElementById("aaaOrSeniorRadio");
-    order.military = document.getElementById("militaryRadio");
-
-    order.discounts = 0;
-    if (order.aaaOrSenior.checked) order.discounts = order.roomRate * .10;
-    else if (order.military.checked) order.discounts = order.roomRate * .20;
-
-    return parseFloat((order.discounts).toFixed(2));
-}
-
-function getDiscountedRoomCost(order)
-{
-    order.numOfDays = +(document.getElementById("numOfNightsInput").value);
-    return parseFloat(((order.roomRate - order.discounts) * order.numOfDays).toFixed(2));
-}
-
-function getTax(order)
-{
-    return parseFloat((order.discountedRoomCost * .12).toFixed(2));
-}
-
-function getTotalCost(order)
-{
-    return parseFloat((order.discountedRoomCost - order.tax).toFixed(2));
-}
-
-function displayOutput(order)
-{
-    console.log("original room cost: " + order.roomRate);
-    console.log("discount: " + order.discounts);
-    console.log("discounted room cost : " + order.discountedRoomCost);
-    console.log("tax: " + order.tax);
-    console.log("total cost: " + order.totalCost);
-
-
+    return +((order.roomRate * order.numOfDays).toFixed(2));
 }
 
 function getMessageAlert(order)
@@ -106,4 +67,49 @@ function getMessageAlert(order)
         if (order.totalNumOfOccupants > 6 ) document.getElementById("messageAlert").hidden = false;
         else document.getElementById("messageAlert").hidden = true;
     }
+
+    return document.getElementById("messageAlert").hidden;
 }
+
+function getDiscounts(order)
+{
+    order.aaaOrSenior = document.getElementById("aaaOrSeniorRadio");
+    order.military = document.getElementById("militaryRadio");
+
+    order.discounts = 0;
+    if (order.aaaOrSenior.checked) order.discounts = order.roomRate * .10;
+    else if (order.military.checked) order.discounts = order.roomRate * .20;
+
+    return +((order.discounts).toFixed(2));
+}
+
+function getDiscountedRoomCost(order)
+{
+    return +((order.roomRate - order.discounts).toFixed(2));
+}
+
+function getTax(order)
+{
+    return +((order.discountedRoomCost * .12).toFixed(2));
+}
+
+function getTotalCost(order)
+{
+    return +((order.discountedRoomCost + order.tax).toFixed(2));
+}
+
+function displayOutput(order)
+{
+    document.getElementById("roomRate").innerText = (order.roomRate).toFixed(2);
+    document.getElementById("discounts").innerText = (order.discounts).toFixed(2);
+    document.getElementById("discountedRoomCost").innerText = (order.discountedRoomCost).toFixed(2);
+    document.getElementById("tax").innerText = (order.tax).toFixed(2);
+    document.getElementById("totalCost").innerText = (order.totalCost).toFixed(2);
+    
+    if (order.messageAlert == true)
+    {
+        document.getElementById("estimatedCostTable").hidden = false;  //this will show the output
+    }
+    else document.getElementById("estimatedCostTable").hidden = true; //if the message alert is shown, the output will be kept hidden
+}
+
