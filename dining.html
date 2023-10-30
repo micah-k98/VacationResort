@@ -56,70 +56,92 @@
                 </div> 
                 <!-- end of radio buttons for dining options -->
 
+                <section class="mt-4 text-center" id="availableRestaurants" hidden>
+                    <h3>Available Restaurants</h3> <hr>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4">
+                            <img src="images/restaurant-1.jpg" alt="Fare Hoa Beach Bar and Grill" class="img-fluid">
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <h4>Fare Hoa Beach Bar and Grill</h4>
+                            <p>Set on the sandy shore of the lagoon, Faré Hoa Beach Bar & Grill is an open-air restaurant with toes-in-the-sand charm. Featuring a modern grill concept, Faré Hoa serves fresh local fish, a fine selection of steaks, and an array of starters and side dishes. A creative cocktail list and wine program are complemented by the warm Polynesian breeze.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4">
+                            <img src="images/restaurant-2.jpg" alt="Tere Nui" class="img-fluid">
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <h4>Tere Nui</h4>
+                            <p>Breakfast and weekly themed dinners are served with a fresh sea breeze at our open-air restaurant overlooking Mount Otemanu.</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-4">
+                            <img src="images/restaurant-3.jpg" alt="Vaimiti" class="img-fluid">
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <h4>Vaimiti</h4>
+                            <p>Vaimiti offers an idyllic overwater setting for eclectic Asian cuisine and sunset cocktails.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-4" id="diningPriceChart" hidden>
+                    <div class="text-center">
+                        <table class="table table-hover w-75 center">
+                            <tr class="table-light">
+                                <th class="col-4">Plan</th>
+                                <th class="col-4">Adult</th>
+                                <th class="col-4">Child</th>
+                            </tr>
+    
+                            <tr>
+                                <td>Basic</td>
+                                <td>$62.50/day</td>
+                                <td>$49.99/day</td>
+                            </tr>
+    
+                            <tr>
+                                <td>Premium (incl. drinks)</td>
+                                <td>$80.00/day</td>
+                                <td>$49.99/day</td>
+                            </tr>                    
+                        </table>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="radio" id="basicRadio" class="form-check-input me-2" value="" name="planOptionRadio" checked>
+                        <label for="basicRadio" class="form-check-label">Basic</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="radio" id="premiumRadio" class="form-check-input me-2" value="" name="planOptionRadio">
+                        <label for="premiumRadio" class="form-check-label">Premium</label>
+                    </div>
+
+                    <div class="row align-items-end">
+                        <div class="form-floating mt-4 col-7">
+                            <input type="text" id="confirmationNumberInput" class="form-control" name="confirmationNumberInput" placeholder="XXX-MMYYYY-0:0:0" minlength="16" maxlength="16">
+                            <label for="confirmationNumberInput" class="form-label ps-4">Enter Confirmation Number</label>
+                        </div>
+                        <button id="estimateDiningButton" class="btn btn-secondary col-5">Estimate</button>
+                    </div>
+
+                    <h6 class="ps-2 mt-2">*Please enter the exact confirmation number</h6>
+
+                    <div class="alert alert-dismissible alert-primary mt-4" id="displayMessage" hidden>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        The all-inclusive option has been added to your reservation. The price of your stay has increased by $<span id="adjustedPrice"></span> based on your selections here.
+                    </div>
+
+                    <div class="alert alert-dismissible alert-danger mt-4" id="alertMessage" hidden>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong>Confirmation number is incorrect.</strong> Please make sure the format is correct. Thank you!
+                    </div>
+                </section>
             </form>
-
-            <section class="mt-4 text-center" id="availableRestaurants" hidden>
-                <h3>Available Restaurants</h3> <hr>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-4">
-                        <img src="images/restaurant-1.jpg" alt="Fare Hoa Beach Bar and Grill" class="img-fluid">
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <h4>Fare Hoa Beach Bar and Grill</h4>
-                        <p>Set on the sandy shore of the lagoon, Faré Hoa Beach Bar & Grill is an open-air restaurant with toes-in-the-sand charm. Featuring a modern grill concept, Faré Hoa serves fresh local fish, a fine selection of steaks, and an array of starters and side dishes. A creative cocktail list and wine program are complemented by the warm Polynesian breeze.</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-4">
-                        <img src="images/restaurant-2.jpg" alt="Tere Nui" class="img-fluid">
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <h4>Tere Nui</h4>
-                        <p>Breakfast and weekly themed dinners are served with a fresh sea breeze at our open-air restaurant overlooking Mount Otemanu.</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-4">
-                        <img src="images/restaurant-3.jpg" alt="Vaimiti" class="img-fluid">
-                    </div>
-                    <div class="col-lg-9 col-md-8">
-                        <h4>Vaimiti</h4>
-                        <p>Vaimiti offers an idyllic overwater setting for eclectic Asian cuisine and sunset cocktails.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="mt-4 text-center " id="diningPriceChart">
-                <table class="table table-hover w-75 center">
-                    <tr class="table-light">
-                        <th class="col-4">Plan</th>
-                        <th class="col-4">Adult</th>
-                        <th class="col-4">Child</th>
-                    </tr>
-
-                    <tr>
-                        <td>Basic</td>
-                        <td>$62.50/day</td>
-                        <td>$49.99/day</td>
-                    </tr>
-
-                    <tr>
-                        <td>Premium (incl. drinks)</td>
-                        <td>$80.00/day</td>
-                        <td>$49.99/day</td>
-                    </tr>                    
-                </table>
-
-                <div class="row align-items-end">
-                    <div class="form-floating mt-4 col-7">
-                        <input type="text" id="confirmationNumberInput" class="form-control" name="confirmationNumberInput" placeholder="XXX-MMYYYY-0:0:0">
-                        <label for="confirmationNumberInput" class="form-label ps-4">Enter Confirmation Number</label>
-                    </div>
-                    <button id="estimateDiningButton" class="btn btn-secondary col-5">Estimate</button>
-                </div>
-            </section>
             
         </main>
         
