@@ -26,10 +26,19 @@ body {
 }
 
 
-
-
 /* FOOTER */
 .footer-container {
     margin-top: auto;
     width: 100%;
+}
+
+
+/* DINING PAGE */
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#estimateDiningButton {
+    height: 58px;
 }

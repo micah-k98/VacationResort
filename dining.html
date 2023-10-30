@@ -58,7 +58,7 @@
 
             </form>
 
-            <section class="mt-4 text-center" hidden>
+            <section class="mt-4 text-center" id="availableRestaurants" hidden>
                 <h3>Available Restaurants</h3> <hr>
                 <div class="row g-4">
                     <div class="col-lg-3 col-md-4">
@@ -89,7 +89,36 @@
                         <p>Vaimiti offers an idyllic overwater setting for eclectic Asian cuisine and sunset cocktails.</p>
                     </div>
                 </div>
+            </section>
 
+            <section class="mt-4 text-center " id="diningPriceChart">
+                <table class="table table-hover w-75 center">
+                    <tr class="table-light">
+                        <th class="col-4">Plan</th>
+                        <th class="col-4">Adult</th>
+                        <th class="col-4">Child</th>
+                    </tr>
+
+                    <tr>
+                        <td>Basic</td>
+                        <td>$62.50/day</td>
+                        <td>$49.99/day</td>
+                    </tr>
+
+                    <tr>
+                        <td>Premium (incl. drinks)</td>
+                        <td>$80.00/day</td>
+                        <td>$49.99/day</td>
+                    </tr>                    
+                </table>
+
+                <div class="row align-items-end">
+                    <div class="form-floating mt-4 col-7">
+                        <input type="text" id="confirmationNumberInput" class="form-control" name="confirmationNumberInput" placeholder="XXX-MMYYYY-0:0:0">
+                        <label for="confirmationNumberInput" class="form-label ps-4">Enter Confirmation Number</label>
+                    </div>
+                    <button id="estimateDiningButton" class="btn btn-secondary col-5">Estimate</button>
+                </div>
             </section>
             
         </main>
@@ -100,7 +129,7 @@
             </div>
         </footer>
         
-        
+        <script src="scripts/dining.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </body>
 
