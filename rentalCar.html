@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Car Rental</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap-minty.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Vacation Resort</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="overnightStay.html">Overnight Stay</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dining.html">Dining</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="rentalCar.html">Rent-A-Car
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="activities.html">Activities</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+        <main class="container m-auto mt-5 mb-5">
+            <h2 class="text-center mb-4">Rental Car Estimator</h2>
+            <form id="theForm">
+                <div class="form-group" validate>
+                    <label for="pickupDateInput" class="form-label">Pickup date:</label>
+                    <input type="date" id="pickupDateInput" class="form-control" name="pickupDate" required> 
+                </div>
+        
+                <div class="form-group mt-3" validate>
+                    <label for="numOfDaysInput" class="form-label">Number of Days:</label>
+                    <input type="number" id="numOfDaysInput" class="form-control" name="numOfDaysInput" required>
+                </div>
+        
+                <div class="mt-3">
+                    <legend>Options:</legend>
+                    <div class="form-check">
+                        <input type="checkbox" id="tollTag" class="form-check-input me-2" value="" name="optionCheckbox">
+                        <label for="tollTag" class="form-check-label">Electronic Toll Tag ($3.95/day)</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="checkbox" id="gps" class="form-check-input me-2" value="" name="optionCheckbox">
+                        <label for="gps" class="form-check-label">GPS ($2.95/day)</label>
+                    </div>
+                    <div class="form-check mt-1">
+                        <input type="checkbox" id="roadsideAssistance" class="form-check-input me-2" value="" name="optionCheckbox">
+                        <label for="roadsideAssistance" class="form-check-label">Roadside Assistance ($2.95/day)</label>
+                    </div>
+                </div>
+        
+                <div class="mt-3">
+                    <legend>Under 25</legend>
+                    <div class="form-check">
+                        <input type="radio" id="notUnder25" class="form-check-input me-2" value="" name="under25Radio" checked>
+                        <label for="notUnder25" class="form-check-label">No</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="under25" class="form-check-input me-2" value="" name="under25Radio">
+                        <label for="under25" class="form-check-label">Yes</label>
+                    </div>
+                </div>
+        
+                <button id="estimateButton" class="btn btn-secondary mt-3">Estimate Total Cost</button>
+            </form>
+            
+
+            <section class="mt-4 pt-4 border-top">
+                <table class="table table-hover">
+                    <tr>
+                        <td class="w-50 text-end pr-5">Car rental: </td>
+                        <td>$ <span id="carRentalCost">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td class="w-50 text-end pr-5">Options: </td>
+                        <td>$ <span id="optionsCost">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <td class="w-50 text-end pr-5">Under 25 surcharge: </td>
+                        <td>$ <span id="under25SurchargeCost">0.00</span></td>
+                    </tr>
+                    <tr>
+                        <th class="w-50 text-end pr-5 ">Total due: </th>
+                        <td>$ <span id="totalCost">0.00</span></td>
+                    </tr>
+                </table>
+                <h6 class="text-center">*All taxes have already been incorporated into the fees shown</h6>
+            </section>
+        </main>
+
+        <footer class="footer-container">
+            <div class="container-fluid bg-primary p-3 text-center m-0">
+                &copy; Vacation Resort 2023
+            </div>
+        </footer>
+
+
+
+        <script src="scripts/rentalCar.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
