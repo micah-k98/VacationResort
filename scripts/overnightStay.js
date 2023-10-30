@@ -17,6 +17,7 @@ function estimateButtonClicked(event)
     order.discountedRoomCost = getDiscountedRoomCost(order);
     order.tax = getTax(order);
     order.totalCost = getTotalCost(order);
+    order.confirmationNumber = getConfirmationNumber(order);
 
     displayOutput(order);
 }
@@ -24,7 +25,8 @@ function estimateButtonClicked(event)
 function getRoomRate(order)
 {
     order.checkInDate = new Date(document.getElementById("checkInDateInput").value);
-    order.checkInMonth = order.checkInDate.getMonth()+1;
+    order.checkInDate = new Date(order.checkInDate.getFullYear(), order.checkInDate.getUTCMonth(), order.checkInDate.getUTCDate());
+    order.checkInMonth = order.checkInDate.getUTCMonth() + 1;
     order.numOfDays = +(document.getElementById("numOfNightsInput").value);
 
     order.queenRadio = document.getElementById("queenRadio");
@@ -98,6 +100,15 @@ function getTotalCost(order)
     return +((order.discountedRoomCost + order.tax).toFixed(2));
 }
 
+function getConfirmationNumber(order)
+{
+    const firstThree = (document.getElementById("fullNameInput").value).substring(0, 3).toUpperCase();
+    if (order.checkInMonth < 10)  order.checkInMonth = order.checkInMonth.toString().padStart(2,'0');
+    const checkInYear = order.checkInDate.getFullYear();
+
+    return `${firstThree}-${order.checkInMonth}${checkInYear}-${order.numOfDays}:${order.numOfAdults}:${order.numOfChildren}`
+}
+
 function displayOutput(order)
 {
     document.getElementById("roomRate").innerText = (order.roomRate).toFixed(2);
@@ -105,6 +116,7 @@ function displayOutput(order)
     document.getElementById("discountedRoomCost").innerText = (order.discountedRoomCost).toFixed(2);
     document.getElementById("tax").innerText = (order.tax).toFixed(2);
     document.getElementById("totalCost").innerText = (order.totalCost).toFixed(2);
+    document.getElementById("confirmationNumber").innerText = order.confirmationNumber;
     
     if (order.messageAlert == true)
     {
